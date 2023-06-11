@@ -21,7 +21,7 @@ def get_pearson_rs(task, model_or_dataset_name):
             - task (string): Task name (either "social acceptability" or "toxicity")
             - model_or_dataset_name (string): Name of a model or dataset (either "socialchem", "delphi", "gpt4", "dynahate",
               "hateroberta", "perspective", or "rewire")
-        Returns:
+        Outputs:
             - pearson_rs (DataFrame): DataFrame representing the Pearson's r coefficients and p-values between the dataset 
               labels/model scores and LabintheWild volunteer annotations by demographic.
               
@@ -29,7 +29,7 @@ def get_pearson_rs(task, model_or_dataset_name):
     is_valid_social_acceptability = task == SOCIAL_ACCEPTABILITY and model_or_dataset_name in [SOCIAL_CHEM, DELPHI, GPT4]
     is_valid_toxicity = task == TOXICITY and model_or_dataset_name in [GPT4, DYNAHATE, HATEROBERTA, PERSPECTIVE_API, REWIRE]
     if is_valid_toxicity or is_valid_social_acceptability:
-        df = pd.read_csv('data/{}_{}.csv'.format(task, "05-25-2023"))
+        df = pd.read_csv('data/nlpositionality_{}.csv'.format(task))
     else:
         raise ValueError('Invalid task name or model or dataset name')
 
@@ -41,6 +41,12 @@ def get_pearson_rs(task, model_or_dataset_name):
         
         if 'None' in demo:
             demo.remove('None')
+
+        if 'mixed' in demo:
+            demo.remove('mixed')
+        
+        if 'arab-american' in demo:
+            demo.remove('arab-american')
             
         for d in demo:
             ndf = df[df[c] == d] # Get all the instances from a demographic group
