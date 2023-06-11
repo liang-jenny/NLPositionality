@@ -1,4 +1,5 @@
 import pandas as pd
+import utils
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning) # Supress pandas warnings
 from scipy import stats
@@ -15,7 +16,7 @@ HATEROBERTA = "hateroberta"
 PERSPECTIVE_API = "perspective"
 REWIRE = "rewire"
 
-def get_pearson_rs(task, model_or_dataset_name):
+def get_pearson_rs(task, model_or_dataset_name, dataset_type="raw"):
     """
         Inputs:
             - task (string): Task name (either "social acceptability" or "toxicity")
@@ -28,8 +29,13 @@ def get_pearson_rs(task, model_or_dataset_name):
     """
     is_valid_social_acceptability = task == SOCIAL_ACCEPTABILITY and model_or_dataset_name in [SOCIAL_CHEM, DELPHI, GPT4]
     is_valid_toxicity = task == TOXICITY and model_or_dataset_name in [GPT4, DYNAHATE, HATEROBERTA, PERSPECTIVE_API, REWIRE]
-    if is_valid_toxicity or is_valid_social_acceptability:
-        df = pd.read_csv('data/nlpositionality_{}.csv'.format(task))
+    
+    # Processed dataset is already downloaded via the API
+    if dataset_type == "processed" and (is_valid_toxicity or is_valid_social_acceptability):
+        df = pd.read_csv('data/nlpositionality_{}_processed.csv'.format(task))
+    elif dataset_type == "raw" and (is_valid_toxicity or is_valid_social_acceptability):
+        df = pd.read_csv('data/nlpositionality_{}_raw.csv'.format(task))
+        df = utils.process_litw_data(df)
     else:
         raise ValueError('Invalid task name or model or dataset name')
 
