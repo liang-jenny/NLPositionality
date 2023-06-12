@@ -26,25 +26,25 @@ _ACL 2023_
 You can download the NLPositionality data annotations gathered on [LabintheWild](https://labinthewild.org) by clicking any of the following links:
 
 #### Social Acceptability
-* **[https://delphi-litw.apps.allenai.org/api/dataset?type=raw](https://delphi-litw.apps.allenai.org/api/dataset?type=raw)**. The dataset annotations with the **demographic information unprocessed**.
-* **[https://delphi-litw.apps.allenai.org/api/dataset?type=processed](https://delphi-litw.apps.allenai.org/api/dataset?type=processed)**. The dataset annotations with the **demographic information processed** in the same way done in the NLPositionality paper and website.
+* **[https://delphi-litw.apps.allenai.org/api/v1/dataset?type=raw](https://delphi-litw.apps.allenai.org/api/v1/dataset?type=raw)**. The dataset annotations with the **demographic information unprocessed**.
+* **[https://delphi-litw.apps.allenai.org/api/v1/dataset?type=processed](https://delphi-litw.apps.allenai.org/api/v1/dataset?type=processed)**. The dataset annotations with the **demographic information processed** in the same way done in the NLPositionality paper and website.
 
 #### Hate Speech & Toxicity
-* **[https://toxicity-litw.apps.allenai.org/api/dataset?type=raw](https://toxicity-litw.apps.allenai.org/api/dataset?type=raw)**. The dataset annotations with the **demographic information unprocessed**.
-* **[https://toxicity-litw.apps.allenai.org/api/dataset?type=processed](https://toxicity-litw.apps.allenai.org/api/dataset?type=processed)**. The dataset annotations with the **demographic information processed** in the same way done in the NLPositionality paper and website.
+* **[https://toxicity-litw.apps.allenai.org/api/v1/dataset?type=raw](https://toxicity-litw.apps.allenai.org/api/v1/dataset?type=raw)**. The dataset annotations with the **demographic information unprocessed**.
+* **[https://toxicity-litw.apps.allenai.org/api/v1/dataset?type=processed](https://toxicity-litw.apps.allenai.org/api/v1/dataset?type=processed)**. The dataset annotations with the **demographic information processed** in the same way done in the NLPositionality paper and website.
 
 ### Format
 
 #### Social Acceptability
 | Column Name | Description |
 | :--- | :---- | 
-| action | An action from the [Social Chemsitry](https://maxwellforbes.com/social-chemistry/) dataset. | 
+| action | An action from the [Social Chemistry](https://maxwellforbes.com/social-chemistry/) dataset. | 
 | situation* | The situation corresponding to the action, as determined by the [Social Chemistry](https://maxwellforbes.com/social-chemistry/) dataset. | 
 | session_id | The [LabintheWild](https://labinthewild.org) annotator's unique session ID. |
-| litw | The [LabintheWild](https://labinthewild.org) annotator's annotation for the action (-2, -1, 0, 1, 2). |
+| litw | The [LabintheWild](https://labinthewild.org) annotator's annotation for the action {-2, -1, 0, 1, 2}. |
 | socialchem | The mean of the [Social Chemistry](https://maxwellforbes.com/social-chemistry/) annotator's labels of the action (between -2 and 2). |
-| delphi | The [Delphi](https://delphi.allenai.org/) model's prediction of the action (-1, 0 1).|
-| gpt4 | The [GPT-4](https://openai.com/gpt-4) model's prediction of the action (-1, 0 1). |
+| delphi | The [Delphi](https://delphi.allenai.org/) model's prediction of the action {-1, 0 1}.|
+| gpt4 | The [GPT-4](https://openai.com/gpt-4) model's prediction of the action {-1, 0 1}. |
 | age | The age of the [LabintheWild](https://labinthewild.org) annotator. |
 | gender | The gender of the [LabintheWild](https://labinthewild.org) annotator. |
 | ethnicity | The ethnicity of the [LabintheWild](https://labinthewild.org) annotator. If there are multiple ethnicities, there are multiple entries for the user. |
@@ -54,19 +54,19 @@ You can download the NLPositionality data annotations gathered on [LabintheWild]
 | country_residence | The country the [LabintheWild](https://labinthewild.org) annotator currently lives in. |
 | native_language | The native language of the [LabintheWild](https://labinthewild.org) annotator. |
 
-\* We do not use situation significantly in our analysis, as annotators only annotate the situation, not the action. There is a 1:1 mapping of actions to situations.
+\* We do not use `situation` in our analysis, as annotators only annotate `action`, not `situation`. There is a 1:1 mapping of `action`s to `situation`s.
 
 #### Hate Speech & Toxicity
 | Column Name | Description |
 | :--- | :---- | 
 | action | An instance from the [Dynahate](https://aclanthology.org/2021.acl-long.132.pdf) dataset. | 
 | session_id | The [LabintheWild](https://labinthewild.org) annotator's unique session ID. |
-| litw | The [LabintheWild](https://labinthewild.org) annotator's annotation for the action (-1, 0, 1). |
-| dynahate | The [Dynahate](https://aclanthology.org/2021.acl-long.132.pdf) annotator's label of the action (0, 1). |
+| litw | The [LabintheWild](https://labinthewild.org) annotator's annotation for the action {-1, 0, 1}. |
+| dynahate | The [Dynahate](https://aclanthology.org/2021.acl-long.132.pdf) annotator's label of the action {0, 1}. |
 | perspective | The [Perspective API](https://perspectiveapi.com/) model's prediction of the action (between 0 and 1).|
 | rewire | The [Rewire API](https://rewire.online/rewire-api-access/) model's prediction of the action (between 0 and 1).|
-| hateroberta | The [ToxiGen RoBERTa](https://aclanthology.org/2022.acl-long.234.pdf) model's prediction of the action (between -1 and 1).|
-| gpt4 | The [GPT-4](https://openai.com/gpt-4) model's prediction of the action (0, 1). |
+| hateroberta | The [ToxiGen RoBERTa](https://aclanthology.org/2022.acl-long.234.pdf) model's prediction of the action (between 0 and 1).|
+| gpt4 | The [GPT-4](https://openai.com/gpt-4) model's prediction of the action {0, 1}. |
 | age | The age of the [LabintheWild](https://labinthewild.org) annotator. |
 | gender | The gender of the [LabintheWild](https://labinthewild.org) annotator. |
 | ethnicity | The ethnicity of the [LabintheWild](https://labinthewild.org) annotator. If there are multiple ethnicities, there are multiple entries for the user. |
