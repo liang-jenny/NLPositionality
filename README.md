@@ -21,17 +21,15 @@ _ACL 2023_
 ```
 
 ## Dataset
+For each task, we have two versions of datasets: 
+* **raw**: demographic information unprocessed.
+* **processed**: demographic information processed in the same way as in the NLPositionality paper and website.
 
 ### Download
 You can download the NLPositionality data annotations gathered on [LabintheWild](https://labinthewild.org) by clicking any of the following links:
 
-#### Social Acceptability
-* **[https://delphi-litw.apps.allenai.org/api/v1/dataset?type=raw](https://delphi-litw.apps.allenai.org/api/v1/dataset?type=raw)**. The dataset annotations with the **demographic information unprocessed**.
-* **[https://delphi-litw.apps.allenai.org/api/v1/dataset?type=processed](https://delphi-litw.apps.allenai.org/api/v1/dataset?type=processed)**. The dataset annotations with the **demographic information processed** in the same way done in the NLPositionality paper and website.
-
-#### Hate Speech & Toxicity
-* **[https://toxicity-litw.apps.allenai.org/api/v1/dataset?type=raw](https://toxicity-litw.apps.allenai.org/api/v1/dataset?type=raw)**. The dataset annotations with the **demographic information unprocessed**.
-* **[https://toxicity-litw.apps.allenai.org/api/v1/dataset?type=processed](https://toxicity-litw.apps.allenai.org/api/v1/dataset?type=processed)**. The dataset annotations with the **demographic information processed** in the same way done in the NLPositionality paper and website.
+* **Social Acceptability**: [raw](https://delphi-litw.apps.allenai.org/api/v1/dataset?type=raw), [processed](https://delphi-litw.apps.allenai.org/api/v1/dataset?type=processed)
+* **Hate Speech & Toxicity**: [raw](https://toxicity-litw.apps.allenai.org/api/v1/dataset?type=raw), [processed](https://toxicity-litw.apps.allenai.org/api/v1/dataset?type=processed)
 
 ### Format
 
