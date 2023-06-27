@@ -11,7 +11,7 @@ def download_dataset(task, dataset_type="raw"):
         Outputs:
             - Downloads the dataset corresponding to the task name from the LabintheWild API.
     """
-    url = "https://{}-litw.apps.allenai.org/api/dataset?type={}".format(
+    url = "https://{}-litw.apps.allenai.org/api/v1/dataset?type={}".format(
         task if task == nlpositionality.TOXICITY else "delphi", 
         dataset_type)
     response = requests.get(url)
