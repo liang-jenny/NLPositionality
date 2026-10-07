@@ -87,3 +87,12 @@ Note there are two options for this script: using the raw dataset (i.e., with un
 * `main.py` contains all the experiments ran in the NLPositionality paper.
 * `utils.py` contains the code used to process demographics.
 * `nlpositionality.py` contains the code used for calculating the Pearson's r correlation between demographics and model predictions / dataset labels, including the Bonferroni stepwise correction.
+
+## License
+
+The NLPositionality annotations and associated research data collected through [LabintheWild](https://labinthewild.org) are released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), except for third-party material included from source datasets.
+
+* Material from [Social Chemistry 101](https://github.com/mbforbes/social-chemistry-101) remains subject to its original [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) license.
+* Material from [DynaHate](https://github.com/bvidgen/Dynamically-Generated-Hate-Speech-Dataset) remains subject to its original [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) license.
+
+These upstream licenses continue to apply to their respective material and are not superseded by the NLPositionality license. See [DATA_LICENSE.md](DATA_LICENSE.md) for details.
